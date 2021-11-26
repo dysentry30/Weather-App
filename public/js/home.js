@@ -165,6 +165,10 @@ selector("form").addEventListener("submit", async (e) => {
         setTimeout(() => {
             selector(".loading").style.display = "none";
         }, 820);
+        selector("#error-msg").style.top = "50%";
+        setTimeout(() => {
+            selector("#error-msg").style.top = "150%";
+        }, 4000);
         // alert(`${query} does not exist`);
     }
 });
@@ -175,7 +179,7 @@ const getWeather = (id) => {
     }).then((response) => {
         const weathers = response.consolidated_weather.reverse();
         weather = weathers;
-        const firstWeather = [...weathers].shift();
+        const firstWeather = weathers.shift();
         title = response.title;
         headerShowData(response.title, firstWeather);
         cardsShowData(weathers);

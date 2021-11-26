@@ -64,7 +64,7 @@ body {
 
 .navbar h2 {
     position: relative;
-    right: 16rem;
+    right: 12rem;
 }
 
 .navbar button {
@@ -292,6 +292,7 @@ body {
 .content .main-content {
     display: flex;
     flex-direction: row;
+    flex-grow: 50;
     justify-content: space-between;
 }
 
@@ -348,7 +349,7 @@ body {
 
 #error-msg {
     position: absolute;
-    top: 50%;
+    top: 150%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
@@ -356,6 +357,7 @@ body {
     border-radius: 10px;
     width: 30%;
     height: 30%;
+    transition: 800ms all cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 #error-msg .error-title {
