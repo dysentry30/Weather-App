@@ -167,22 +167,22 @@ selector("form").addEventListener("submit", async (e) => {
     }
 });
 
-// const getWeather = (id) => {
-//     myFetch({
-//         url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${id}/`,
-//     }).then((response) => {
-//         const weathers = response.consolidated_weather.reverse();
-//         weather = weathers;
-//         const firstWeather = [...weathers].shift();
-//         title = response.title;
-//         headerShowData(response.title, firstWeather);
-//         cardsShowData(weathers);
-//     });
-// };
-selector(".loading").style.opacity = "0";
-setTimeout(() => {
-    selector(".loading").style.display = "none";
-}, 820);
+const getWeather = (id) => {
+    myFetch({
+        url: `https://www.metaweather.com/api/location/${id}/`,
+    }).then((response) => {
+        const weathers = response.consolidated_weather.reverse();
+        weather = weathers;
+        const firstWeather = [...weathers].shift();
+        title = response.title;
+        headerShowData(response.title, firstWeather);
+        cardsShowData(weathers);
+        selector(".loading").style.opacity = "0";
+        setTimeout(() => {
+            selector(".loading").style.display = "none";
+        }, 820);
+    });
+};
 
-// let initialID = 1047378;
-// getWeather(1047378);
+let initialID = 1047378;
+getWeather(1047378);
