@@ -126,7 +126,7 @@ selector(".close").addEventListener("click", (e) => {
 
 selector("#tempCheckbox").addEventListener("click", (e) => {
     const checked = e.target.checked;
-    const headerData = weather.shift();
+    const headerData = [...weather].shift();
     if (checked) {
         headerShowData(title, headerData, checked);
         cardsShowData(weather, checked);
