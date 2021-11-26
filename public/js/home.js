@@ -117,10 +117,10 @@ const cardsShowData = (object, f = false) => {
 };
 
 selector(".settingBtn").addEventListener("click", (e) => {
-    selector(".background").style.left = "0%";
+    selector(".background").style.left = "0";
     setTimeout(() => {
-        selector(".sidebar").style.left = "80%";
-    }, 400);
+        selector(".sidebar").style.left = "60%";
+    }, 500);
 });
 
 selector(".close").addEventListener("click", (e) => {
@@ -172,7 +172,7 @@ selector("form").addEventListener("submit", async (e) => {
         }, 820);
         selector("#error-msg").style.top = "50%";
         setTimeout(() => {
-            selector("#error-msg").style.top = "150%";
+            selector("#error-msg").style.top = "-150%";
         }, 4000);
     }
     selector("#search").value("");
