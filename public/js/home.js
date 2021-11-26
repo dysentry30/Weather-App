@@ -1,5 +1,6 @@
 let weather = [];
 let title = "";
+let firstWeather;
 const selector = (elt) => {
     return {
         focus: () => {
@@ -126,12 +127,11 @@ selector(".close").addEventListener("click", (e) => {
 
 selector("#tempCheckbox").addEventListener("click", (e) => {
     const checked = e.target.checked;
-    const headerData = [...weather].shift();
     if (checked) {
-        headerShowData(title, headerData, checked);
+        headerShowData(title, firstWeather, checked);
         cardsShowData(weather, checked);
     } else {
-        headerShowData(title, headerData);
+        headerShowData(title, firstWeather);
         cardsShowData(weather, checked);
     }
 });
@@ -178,8 +178,8 @@ const getWeather = (id) => {
         url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${id}/`,
     }).then((response) => {
         const weathers = response.consolidated_weather.reverse();
+        firstWeather = weathers.shift();
         weather = weathers;
-        const firstWeather = weathers.shift();
         title = response.title;
         headerShowData(response.title, firstWeather);
         cardsShowData(weathers);
