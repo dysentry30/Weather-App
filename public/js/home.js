@@ -27,7 +27,12 @@ const selector = (elt) => {
                 .addEventListener(type, (e) => callback(e));
         },
         style: document.querySelector(elt).style,
-        value: document.querySelector(elt).value,
+        value: (value = null) => {
+            if (value !== null) {
+                return (document.querySelector(elt).value = value);
+            }
+            return document.querySelector(elt).value;
+        },
     };
 };
 const selectors = (elt) => {
@@ -152,7 +157,8 @@ selector("form").addEventListener("submit", async (e) => {
     setTimeout(() => {
         selector(".loading").style.opacity = "1";
     }, 100);
-    const query = selector("#search").value.trim().toString();
+    const query = selector("#search").value();
+    selector("#search").value("");
     const [location] = await myFetch({
         url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${query}`,
     });
@@ -169,7 +175,6 @@ selector("form").addEventListener("submit", async (e) => {
         setTimeout(() => {
             selector("#error-msg").style.top = "150%";
         }, 4000);
-        // alert(`${query} does not exist`);
     }
 });
 
