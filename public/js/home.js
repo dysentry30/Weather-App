@@ -49,6 +49,7 @@ const myFetch = async ({url, body}) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Host: "https://weather-app-simple-clone.herokuapp.com/",
                 // "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(...body),
@@ -59,6 +60,7 @@ const myFetch = async ({url, body}) => {
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
+                Host: "https://weather-app-simple-clone.herokuapp.com/",
                 // "Access-Control-Allow-Origin": "*",
             },
         }).then((resolve) => resolve.json());
