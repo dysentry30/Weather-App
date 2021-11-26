@@ -425,9 +425,9 @@ body {
 
     .navbar .search-content {
         z-index: 100;
-        left: 20%;
+        left: 10%;
         font-size: 12px;
-        width: min-content;
+        width: 100px;
     }
 
     .navbar .input-group label img {
