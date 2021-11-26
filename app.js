@@ -9,7 +9,7 @@ var corsOptions = {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 server.use(express.json());
-server.use(cors);
+server.use(cors(corsOptions));
 server.use(express.static(`${__dirname}/public`));
 server.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
 
