@@ -171,7 +171,7 @@ selector("form").addEventListener("submit", async (e) => {
 
 const getWeather = (id) => {
     myFetch({
-        url: `https://www.metaweather.com/api/location/${id}/`,
+        url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${id}/`,
     }).then((response) => {
         const weathers = response.consolidated_weather.reverse();
         weather = weathers;
