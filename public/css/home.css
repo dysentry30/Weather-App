@@ -451,7 +451,7 @@ body {
         column-gap: 0.5rem;
         height: 500px;
         padding: 0 0 50px 0;
-        width: 180%;
+        width: 185%;
         top: calc(100vh - 70vh);
         right: 4rem;
         position: relative;
@@ -460,7 +460,7 @@ body {
     }
 
     .content .main-content .card {
-        width: 150px;
+        width: 130px;
         height: 200px;
         font-size: 12px;
     }
